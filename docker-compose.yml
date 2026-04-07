@@ -1,0 +1,11 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: sales-analysis
+    environment:
+      MYSQL_DATABASE: MonitorVendas
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3300:3306"
+    volumes:
+      - D:\data\mysql\sales-analysis:/var/lib/mysql

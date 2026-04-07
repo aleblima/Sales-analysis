@@ -1,6 +1,4 @@
-create database MonitorVendas;
 use MonitorVendas;
-
 create table Regiao(
 idregiao int primary key auto_increment,
 nomeRegiao varchar(30)
@@ -9,7 +7,7 @@ nomeRegiao varchar(30)
 create table Cliente(
 idcliente int primary key auto_increment,
 cpf varchar(11),
-nomeCliente varchar(60),
+nomeCliente varchar(60)
 );
 
 create table Produto(

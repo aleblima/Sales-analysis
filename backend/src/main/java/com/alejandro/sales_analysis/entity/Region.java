@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Regiao")
+@Table(name = "regiao")
 public class Region {
 
   @Id

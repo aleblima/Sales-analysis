@@ -1,5 +1,5 @@
 use MonitorVendas;
-create table Regiao(
+create table regiao(
 idregiao int primary key auto_increment,
 nomeRegiao varchar(30)
 );
@@ -16,7 +16,7 @@ nomeProduto varchar(100),
 categoria varchar(30)
 );
 
-create table Vendedor(
+create table vendedor(
 idvendedor int primary key auto_increment,
 nomeVendedor varchar(60),
 idregiao int unique,
@@ -25,7 +25,7 @@ foreign key (idregiao) references Regiao(idregiao)
 );
 
 
-create table Venda(
+create table venda(
 idvenda int primary key auto_increment,
 idvendedor int,
 idcliente int,

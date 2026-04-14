@@ -9,3 +9,5 @@ services:
       - "3300:3306"
     volumes:
       - D:\data\mysql\sales-analysis:/var/lib/mysql
+      - ./docs/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./docs/changes.sql:/docker-entrypoint-initdb.d/02-changes.sql

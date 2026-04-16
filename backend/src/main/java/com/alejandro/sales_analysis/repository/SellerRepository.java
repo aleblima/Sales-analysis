@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SellerRepository extends JpaRepository<Seller, Integer> {
-    List<Seller> findByRegion_IdRegion(Integer regionIdRegion);
+    List<Seller> findByRegion_IdRegion(Integer Id);
 }

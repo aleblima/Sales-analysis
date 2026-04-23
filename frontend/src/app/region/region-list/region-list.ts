@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RegionService } from '../region';
 import { Region } from '../region-model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-region-list',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './region-list.html',
   styleUrl: './region-list.css',
 })

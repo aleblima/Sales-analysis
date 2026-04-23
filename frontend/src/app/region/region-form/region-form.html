@@ -1,1 +1,40 @@
-<p>region-form works!</p>
+<main class="page-container">
+  <div class="background-glow"></div>
+  
+  <header class="page-header">
+    <div class="header-content">
+      <div class="badge">Cadastro</div>
+      <h1 class="page-title">Nova Região</h1>
+      <p class="page-subtitle">Adicione uma nova área de atuação para acompanhar as vendas do sistema.</p>
+    </div>
+    <div class="header-actions">
+      <a class="btn-secondary" routerLink="/region">Voltar</a>
+    </div>
+  </header>
+
+  <section class="content-section">
+    <div class="form-card">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="regionName" class="form-label">Nome da Região</label>
+          <input 
+            type="text" 
+            id="regionName" 
+            name="regionName" 
+            class="form-control" 
+            [(ngModel)]="regionName" 
+            placeholder="Ex: Sudeste, Sul, Norte..." 
+            required 
+            autofocus
+          />
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" [disabled]="!regionName">
+            Salvar Região
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

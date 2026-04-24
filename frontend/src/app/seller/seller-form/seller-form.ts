@@ -1,9 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { SellerService } from '../seller';
+import { Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RegionService } from '../../region/region';
+import { Region } from '../../region/region-model';
 
 @Component({
   selector: 'app-seller-form',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule, RouterModule],
   templateUrl: './seller-form.html',
   styleUrl: './seller-form.css',
 })
-export class SellerForm {}
+export class SellerForm implements OnInit {
+  private sellerService = inject(SellerService);
+  private regionService = inject(RegionService);
+  private router = inject(Router);
+
+  sellerName: string = '';
+  selectedRegionId: number | null = null;
+  regions: Region[] = [];
+
+  ngOnInit(): void {
+    this.regionService.getAll().subscribe({
+      next: (data) => this.regions = data,
+      error: (err) => console.log(err)
+    });
+  }
+
+  onSubmit(): void {
+    this.sellerService.create(this.sellerName, this.selectedRegionId!).subscribe({
+      next: () => this.router.navigate(['/seller']),
+      error: (err) => console.log(err)
+    });
+  }
+}

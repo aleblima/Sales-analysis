@@ -1,1 +1,38 @@
-<p>seller-form works!</p>
+<main class="page-container">
+  <div class="background-glow"></div>
+
+  <header class="page-header">
+    <div class="header-content">
+      <div class="badge">Cadastro</div>
+      <h1 class="page-title">Novo Vendedor</h1>
+      <p class="page-subtitle">Adicione um novo vendedor e associe-o a uma região de atuação no sistema.</p>
+    </div>
+    <div class="header-actions">
+      <a class="btn-secondary" routerLink="/seller">Voltar</a>
+    </div>
+  </header>
+
+  <section class="content-section">
+    <div class="form-card">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="sellerName" class="form-label">Nome do Vendedor</label>
+          <input type="text" id="sellerName" name="sellerName" class="form-control" [(ngModel)]="sellerName"
+            placeholder="Ex: João Silva..." required autofocus />
+        </div>
+
+        <div class="form-group">
+          <label for="regionId" class="form-label">ID da Região</label>
+          <input type="number" id="selectedRegionId" name="selectedRegionId" class="form-control"
+            [(ngModel)]="selectedRegionId" placeholder="Ex: 1" required />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary" [disabled]="!sellerName || !selectedRegionId">
+            Salvar Vendedor
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

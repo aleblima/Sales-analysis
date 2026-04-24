@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SellerService } from '../seller';
-import { Seller } from '../seller-module';
+import { Seller } from '../seller-model';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 

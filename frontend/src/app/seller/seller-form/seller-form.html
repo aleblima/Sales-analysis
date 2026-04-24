@@ -23,12 +23,12 @@
 
         <div class="form-group">
           <label for="regionId" class="form-label">ID da Região</label>
-          <input type="number" id="selectedRegionId" name="selectedRegionId" class="form-control"
-            [(ngModel)]="selectedRegionId" placeholder="Ex: 1" required />
+          <input type="number" id="regionId" name="regionId" class="form-control" [(ngModel)]="regionId"
+            placeholder="Ex: 1" required />
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn-primary" [disabled]="!sellerName || !selectedRegionId">
+          <button type="submit" class="btn-primary" [disabled]="!sellerName || !regionId">
             Salvar Vendedor
           </button>
         </div>

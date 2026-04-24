@@ -18,18 +18,18 @@ export class SellerForm implements OnInit {
   private router = inject(Router);
 
   sellerName: string = '';
-  selectedRegionId: number | null = null;
+  regionId: number | null = null;
   regions: Region[] = [];
 
   ngOnInit(): void {
     this.regionService.getAll().subscribe({
       next: (data) => this.regions = data,
-      error: (err) => console.log(err)
+      error: (err) => console.error(err)
     });
   }
 
   onSubmit(): void {
-    this.sellerService.create(this.sellerName, this.selectedRegionId!).subscribe({
+    this.sellerService.create(this.sellerName, this.regionId!).subscribe({
       next: () => this.router.navigate(['/seller']),
       error: (err) => console.log(err)
     });

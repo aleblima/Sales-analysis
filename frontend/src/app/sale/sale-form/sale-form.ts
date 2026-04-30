@@ -1,13 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { SaleService } from '../sale';
-import { RegionService } from '../../region/region';
 import { SellerService } from '../../seller/seller';
 import { Seller } from '../../seller/seller-model';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-sale-form',
-  imports: [],
+  imports: [FormsModule, RouterLink],
   templateUrl: './sale-form.html',
   styleUrl: './sale-form.css',
 })
@@ -19,11 +19,11 @@ export class SaleForm implements OnInit {
   idSeller: number | null = null;
   total: number | null = null;
   date: string = '';
-  sellers: Seller[] = []
+  sellers = signal<Seller[]>([]);
 
   ngOnInit(): void {
     this.sellerService.getAll().subscribe({
-      next: (data) => this.sellers = data,
+      next: (data) => this.sellers.set(data),
       error: (err) => console.error(err)
     });
   }

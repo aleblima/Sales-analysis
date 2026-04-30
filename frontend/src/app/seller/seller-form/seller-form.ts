@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { SellerService } from '../seller';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -19,11 +19,11 @@ export class SellerForm implements OnInit {
 
   sellerName: string = '';
   regionId: number | null = null;
-  regions: Region[] = [];
+  regions = signal<Region[]>([]);
 
   ngOnInit(): void {
     this.regionService.getAll().subscribe({
-      next: (data) => this.regions = data,
+      next: (data) => this.regions.set(data),
       error: (err) => console.error(err)
     });
   }

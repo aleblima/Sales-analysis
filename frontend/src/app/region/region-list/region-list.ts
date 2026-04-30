@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RegionService } from '../region';
 import { Region } from '../region-model';
 import { RouterLink } from '@angular/router';
@@ -11,18 +11,18 @@ import { RouterLink } from '@angular/router';
 })
 export class RegionList implements OnInit {
   private regionService = inject(RegionService);
-  regions: Region[] = [];
+  regions = signal<Region[]>([]);
 
   ngOnInit(): void {
     this.regionService.getAll().subscribe({
-      next: (data) => this.regions = data,
+      next: (data) => this.regions.set(data),
       error: (err) => console.error(err)
     });
   }
 
   delete(id: number): void {
     this.regionService.delete(id).subscribe({
-      next: () => this.regions = this.regions.filter(r => r.id != id),
+      next: () => this.regions.update(list => list.filter(r => r.id !== id)),
       error: (err) => console.error(err)
     })
   }

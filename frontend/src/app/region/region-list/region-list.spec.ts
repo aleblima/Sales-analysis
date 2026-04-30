@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { RegionList } from './region-list';
 
@@ -8,7 +10,8 @@ describe('RegionList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RegionList],
+      imports: [RegionList, HttpClientTestingModule],
+      providers: [provideRouter([])]
     }).compileComponents();
 
     fixture = TestBed.createComponent(RegionList);

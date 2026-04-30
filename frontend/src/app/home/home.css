@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+}
+
 .home-container {
   padding: 2rem;
   max-width: 1200px;

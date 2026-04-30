@@ -11,8 +11,8 @@
     </div>
   </header>
 
-  <section class="content-section">
-    @if (sellers && sellers.length === 0) {
+  <section class="content-section custom-scrollbar">
+    @if (sellers().length === 0) {
       <div class="empty-state">
         <div class="empty-icon">
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,9 +23,9 @@
         <p>Ainda não há vendedores cadastrados para análise.</p>
         <button class="btn-secondary" routerLink="/seller/new">Adicionar Primeiro Vendedor</button>
       </div>
-    } @else if (sellers && sellers.length > 0) {
+    } @else {
       <div class="cards-grid">
-        @for (seller of sellers; track seller.id) {
+        @for (seller of sellers(); track seller.id) {
           <div class="seller-card">
             <div class="card-header">
               <span class="seller-id">ID: {{ seller.id }}</span>

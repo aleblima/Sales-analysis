@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset mínimo — apenas anula o margin padrão do navegador (8px).
+   Toda estilização de layout e overflow é definida em cada componente. */
+
+:root {
+  --color-gray-700: #94a3b8; /* Slate 400 - suave para a barra base */
+  --color-blue-500: #6d28d9; /* Purple - cor da marca (badge) para o hover */
+}
+
+body {
+  margin: 0;
+}
+
+/* Custom Scrollbar Premium - Utilizado nas content-sections */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-gray-700);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue-500);
+}

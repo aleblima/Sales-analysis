@@ -1,1 +1,97 @@
-<p>sale-form works!</p>
+<main class="page-container">
+  <div class="background-glow"></div>
+
+  <header class="page-header">
+    <div class="header-content">
+      <div class="badge">Cadastro</div>
+      <h1 class="page-title">Nova Venda</h1>
+      <p class="page-subtitle">Registre uma nova transação comercial vinculando vendedor, valor e data.</p>
+    </div>
+    <div class="header-actions">
+      <a class="btn-secondary" routerLink="/sale">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar
+      </a>
+    </div>
+  </header>
+
+  <section class="content-section custom-scrollbar">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2v20m10-10H2" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="form-card-title">Dados da Venda</h2>
+          <p class="form-card-desc">Preencha todos os campos para registrar a transação.</p>
+        </div>
+      </div>
+
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <div class="form-group form-group-full">
+            <label for="sellerId" class="form-label">Vendedor</label>
+            <div class="select-wrapper">
+              <select
+                id="sellerId"
+                name="sellerId"
+                class="form-control"
+                [(ngModel)]="idSeller"
+                required
+              >
+                <option [ngValue]="null" disabled>Selecione um vendedor...</option>
+                @for (seller of sellers(); track seller.id) {
+                  <option [ngValue]="seller.id">{{ seller.name }} — {{ seller.region }}</option>
+                }
+              </select>
+              <svg class="select-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="total" class="form-label">Valor (R$)</label>
+            <input
+              type="number"
+              id="total"
+              name="total"
+              class="form-control"
+              [(ngModel)]="total"
+              placeholder="0,00"
+              min="0.01"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="date" class="form-label">Data da Venda</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-control"
+              [(ngModel)]="date"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a class="btn-ghost" routerLink="/sale">Cancelar</a>
+          <button type="submit" class="btn-primary" [disabled]="!idSeller || !total || !date">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Salvar Venda
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>

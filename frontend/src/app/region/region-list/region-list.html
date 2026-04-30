@@ -11,8 +11,8 @@
     </div>
   </header>
 
-  <section class="content-section">
-    @if (regions.length === 0) {
+  <section class="content-section custom-scrollbar">
+    @if (regions().length === 0) {
       <div class="empty-state">
         <div class="empty-icon">
           <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +25,7 @@
       </div>
     } @else {
       <div class="cards-grid">
-        @for (region of regions; track region.id) {
+        @for (region of regions(); track region.id) {
           <div class="region-card">
             <div class="card-header">
               <span class="region-id">ID: {{ region.id }}</span>

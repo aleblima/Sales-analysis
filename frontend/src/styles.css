@@ -3,6 +3,10 @@
 /* Reset mínimo — apenas anula o margin padrão do navegador (8px).
    Toda estilização de layout e overflow é definida em cada componente. */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   --color-gray-700: #94a3b8; /* Slate 400 - suave para a barra base */
   --color-blue-500: #6d28d9; /* Purple - cor da marca (badge) para o hover */

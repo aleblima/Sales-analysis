@@ -17,8 +17,8 @@ export class SellerForm implements OnInit {
   private regionService = inject(RegionService);
   private router = inject(Router);
 
-  sellerName: string = '';
-  regionId: number | null = null;
+  name: string = '';
+  idregion: number | null = null;
   regions = signal<Region[]>([]);
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class SellerForm implements OnInit {
   }
 
   onSubmit(): void {
-    this.sellerService.create(this.sellerName, this.regionId!).subscribe({
+    this.sellerService.create(this.name, this.idregion!).subscribe({
       next: () => this.router.navigate(['/seller']),
       error: (err) => console.log(err)
     });

@@ -13,37 +13,37 @@
 
   <section class="content-section custom-scrollbar">
     @if (regions().length === 0) {
-      <div class="empty-state">
-        <div class="empty-icon">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#c4b5fd"/>
-          </svg>
-        </div>
-        <h2>Nenhuma região encontrada</h2>
-        <p>Ainda não há áreas de atuação cadastradas para análise.</p>
-        <button class="btn-secondary" routerLink="/region/new">Adicionar Primeira Região</button>
+    <div class="empty-state">
+      <div class="empty-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+            fill="#c4b5fd" />
+        </svg>
       </div>
+      <h2>Nenhuma região encontrada</h2>
+      <p>Ainda não há áreas de atuação cadastradas para análise.</p>
+      <button class="btn-secondary" routerLink="/region/new">Adicionar Primeira Região</button>
+    </div>
     } @else {
-      <div class="cards-grid">
-        @for (region of regions(); track region.id) {
-          <div class="region-card">
-            <div class="card-header">
-              <span class="region-id">ID: {{ region.id }}</span>
-            </div>
-            <div class="card-body">
-              <h3 class="region-name">{{ region.name }}</h3>
-            </div>
-            <div class="card-footer">
-              <button class="btn-danger" (click)="delete(region.id)" title="Excluir região">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z" fill="currentColor"/>
-                </svg>
-                <span>Excluir</span>
-              </button>
-            </div>
-          </div>
-        }
+    <div class="cards-grid">
+      @for (region of regions(); track region.id) {
+      <div class="region-card">
+        <div class="card-body">
+          <h3 class="region-name">{{ region.name }}</h3>
+        </div>
+        <div class="card-footer">
+          <button class="btn-danger" (click)="delete(region.id)" title="Excluir região">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z"
+                fill="currentColor" />
+            </svg>
+            <span>Excluir</span>
+          </button>
+        </div>
       </div>
+      }
+    </div>
     }
   </section>
 </main>

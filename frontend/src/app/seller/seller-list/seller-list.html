@@ -13,38 +13,40 @@
 
   <section class="content-section custom-scrollbar">
     @if (sellers().length === 0) {
-      <div class="empty-state">
-        <div class="empty-icon">
-          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#c4b5fd"/>
-          </svg>
-        </div>
-        <h2>Nenhum vendedor encontrado</h2>
-        <p>Ainda não há vendedores cadastrados para análise.</p>
-        <button class="btn-secondary" routerLink="/seller/new">Adicionar Primeiro Vendedor</button>
+    <div class="empty-state">
+      <div class="empty-icon">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+            fill="#c4b5fd" />
+        </svg>
       </div>
+      <h2>Nenhum vendedor encontrado</h2>
+      <p>Ainda não há vendedores cadastrados para análise.</p>
+      <button class="btn-secondary" routerLink="/seller/new">Adicionar Primeiro Vendedor</button>
+    </div>
     } @else {
-      <div class="cards-grid">
-        @for (seller of sellers(); track seller.id) {
-          <div class="seller-card">
-            <div class="card-header">
-              <span class="seller-id">ID: {{ seller.id }}</span>
-              <span class="seller-region">Região: {{ seller.region }}</span>
-            </div>
-            <div class="card-body">
-              <h3 class="seller-name">{{ seller.name }}</h3>
-            </div>
-            <div class="card-footer">
-              <button class="btn-danger" (click)="delete(seller.id)" title="Excluir vendedor">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z" fill="currentColor"/>
-                </svg>
-                <span>Excluir</span>
-              </button>
-            </div>
-          </div>
-        }
+    <div class="cards-grid">
+      @for (seller of sellers(); track seller.id) {
+      <div class="seller-card">
+        <div class="card-header">
+          <span class="seller-region">Região: {{ seller.region }}</span>
+        </div>
+        <div class="card-body">
+          <h3 class="seller-name">{{ seller.name }}</h3>
+        </div>
+        <div class="card-footer">
+          <button class="btn-danger" (click)="delete(seller.id)" title="Excluir vendedor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z"
+                fill="currentColor" />
+            </svg>
+            <span>Excluir</span>
+          </button>
+        </div>
       </div>
+      }
+    </div>
     }
   </section>
 </main>

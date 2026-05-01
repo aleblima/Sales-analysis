@@ -17,8 +17,8 @@ export class SellerService {
     return this.http.get<Seller[]>(this.url);
   }
 
-  create(name: string, regionId: number): Observable<Seller> {
-    return this.http.post<Seller>(this.url, { name, regionId });
+  create(name: string, idregion: number): Observable<Seller> {
+    return this.http.post<Seller>(this.url, { name, idregion });
   }
 
   delete(id: number): Observable<void> {

@@ -17,8 +17,8 @@ export class RegionService {
     return this.http.get<Region[]>(this.url);
   }
 
-  create(name: string): Observable<Region> {
-    return this.http.post<Region>(this.url, { name })
+  create(region: string): Observable<Region> {
+    return this.http.post<Region>(this.url, { region })
   }
 
   delete(id: number): Observable<void> {

@@ -22,15 +22,15 @@
   </div>
 
   <div class="summary-section">
-    <h2>Métricas de Vendas (Em breve)</h2>
+    <h2>Métricas de Vendas</h2>
     <div class="metrics-grid">
       <div class="metric-card">
         <h3>Total de Vendas</h3>
-        <p class="value">{{ totalSales }}</p>
+        <p class="value">{{ totalSales() }}</p>
       </div>
       <div class="metric-card">
         <h3>Faturamento</h3>
-        <p class="value">R$ {{ totalRevenue | number:'1.2-2' }}</p>
+        <p class="value">R$ {{ totalRevenue() | number:'1.2-2' }}</p>
       </div>
     </div>
   </div>

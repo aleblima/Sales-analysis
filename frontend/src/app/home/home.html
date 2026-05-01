@@ -1,0 +1,37 @@
+<div class="home-container">
+  <h1>Visão Geral do Sistema</h1>
+  
+  <div class="nav-cards">
+    <a routerLink="/region" class="card region-card">
+      <div class="icon">🗺️</div>
+      <h2>Regiões</h2>
+      <p>Gerenciar regiões de atuação</p>
+    </a>
+    
+    <a routerLink="/seller" class="card seller-card">
+      <div class="icon">👥</div>
+      <h2>Vendedores</h2>
+      <p>Gerenciar equipe de vendas</p>
+    </a>
+    
+    <a routerLink="/sale" class="card sale-card">
+      <div class="icon">💰</div>
+      <h2>Vendas</h2>
+      <p>Registrar e analisar vendas</p>
+    </a>
+  </div>
+
+  <div class="summary-section">
+    <h2>Métricas de Vendas (Em breve)</h2>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Total de Vendas</h3>
+        <p class="value">{{ totalSales }}</p>
+      </div>
+      <div class="metric-card">
+        <h3>Faturamento</h3>
+        <p class="value">R$ {{ totalRevenue | number:'1.2-2' }}</p>
+      </div>
+    </div>
+  </div>
+</div>
